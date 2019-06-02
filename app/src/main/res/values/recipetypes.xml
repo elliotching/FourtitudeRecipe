@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recipe_types">
+        <item>No Filter</item>
+        <!--1-->
+        <item>Salad</item>
+        <!--2-->
+        <item>Desserts</item>
+        <!--3-->
+        <item>Soup</item>
+        <!--4-->
+        <item>Pancakes</item>
+    </string-array>
+</resources>

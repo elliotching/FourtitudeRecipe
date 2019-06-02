@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="s.kali.fourtituderecipe.MainActivity">
+    <item
+        android:id="@+id/action_reset"
+        android:orderInCategory="100"
+        android:title="Reset"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_edit"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_edit_24dp"
+        android:title="Edit"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_delete"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_edit_24dp"
+        android:title="Delete"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+</menu>

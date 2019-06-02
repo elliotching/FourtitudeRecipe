@@ -1,0 +1,436 @@
+
+
+usage:
+
+startActivityForResult(galleryIntent(), GALLERY_INTENT);
+
+=============
+    private Intent cameraIntent() {
+        CharSequence title = context.getString(com.theartofdev.edmodo.cropper.R.string.pick_image_intent_chooser_title);
+        boolean includeDocuments = false;
+        PackageManager packageManager = context.getPackageManager();
+        // collect all camera intents
+        List<Intent> allIntents = new ArrayList<>();
+        // Determine Uri of camera image to  save.
+        Uri outputFileUri = CropImage.getCaptureImageOutputUri(context);
+        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
+        for (ResolveInfo res : listCam) {
+            Intent intent = new Intent(captureIntent);
+            intent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+            intent.setPackage(res.activityInfo.packageName);
+            if (outputFileUri != null) {
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+            }
+            allIntents.add(intent);
+        }
+        // end of collect all camera intents.
+        Intent target;
+        if (allIntents.isEmpty()) {
+            target = new Intent();
+        } else {
+            target = allIntents.get(allIntents.size() - 1);
+            allIntents.remove(allIntents.size() - 1);
+        }
+        // Create a chooser from the main  intent
+        Intent chooserIntent = Intent.createChooser(target, title);
+        // Add all other intents
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, allIntents.toArray(new Parcelable[allIntents.size()]));
+        return chooserIntent;
+    }
+
+
+    private Intent galleryIntent() {
+        CharSequence title = context.getString(com.theartofdev.edmodo.cropper.R.string.pick_image_intent_chooser_title);
+        boolean includeDocuments = false;
+        PackageManager packageManager = context.getPackageManager();
+        // collect all camera intents
+        List<Intent> allIntents = new ArrayList<>();
+        List<Intent> galleryIntents = CropImage.getGalleryIntents(packageManager, Intent.ACTION_GET_CONTENT, includeDocuments);
+        if (galleryIntents.size() == 0) {
+            // if no intents found for get-content try pick intent action (Huawei P9).
+            galleryIntents = CropImage.getGalleryIntents(packageManager, Intent.ACTION_PICK, includeDocuments);
+        }
+        allIntents.addAll(galleryIntents);
+        Intent target;
+        if (allIntents.isEmpty()) {
+            target = new Intent();
+        } else {
+            target = allIntents.get(allIntents.size() - 1);
+            allIntents.remove(allIntents.size() - 1);
+        }
+        // Create a chooser from the main  intent
+        Intent chooserIntent = Intent.createChooser(target, title);
+        // Add all other intents
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, allIntents.toArray(new Parcelable[allIntents.size()]));
+        return chooserIntent;
+    }
+
+Uri imageUri = CropImage.getPickImageResultUri(this, data);
+
+
+//    private void checkStoragePermission() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+//                    checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+//                    checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//                // Request Location Permission
+//                ActivityCompat.requestPermissions(activity,
+//                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PERMISSION);
+//            }
+//        }
+//    }
+
+
+
+
+special Keralan red fish curry
+
+Ingredients
+
+1kg of Spanish mackerel or similar fish
+3 pieces of Malabar tamarind
+3 inches of ginger
+3-5 cloves of garlic
+4-5 shallots
+5 tablespoons of red chilli powder
+2 tablespoons of coriander powder
+2 sprigs of curry leaves
+½ teaspoon of mustard seed
+½ teaspoon of sweet cumin
+½ teaspoon of white cumin
+½ teaspoon of fenugreek
+Salt to taste
+Oil
+
+Instructions
+
+    Pound ginger, garlic and shallots into a rough paste with a pinch of salt.
+    Heat up some oil to fry off the paste with curry leaves, mustard seed, sweet cumin, white cumin and fenugreek until fragrant.
+    Make a paste with a bit of water, chilli powder and coriander powder.
+    Add to wok and sauté well.
+    Once well cooked, add ¾ of a cup of water.
+    Once it starts to boil, add the fish.
+    Let it simmer before adding the rinsed off Malabar tamarind.
+    Low simmer until fish is cook and the tamarind flavour is completely infused.
+
+
+
+=======================================
+b  (Salad)
+
+Broccoli and Everything Salad
+
+Ingredients
+3 cups raw broccoli, chopped
+1 medium carrot, peeled and diced
+2 stalks celery, thinly sliced
+1⁄2 cup raisins
+1⁄4 cup onion, chopped
+1 cup cooked ham, chicken or turkey
+1⁄4 cup light mayonnaise
+1⁄2 cup plain, nonfat yogurt
+1 Tablespoon sugar
+1 teaspoon vinegar
+
+Directions
+
+    Wash and prepare vegetables.
+    In a large bowl mix together broccoli, carrot, celery, raisins, onion and meat.
+    Mix together mayonnaise, yogurt, sugar and vinegar in a separate bowl.
+    Add mayonnaise mixture to salad and mix well.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Try adding apples or jicama.
+    You can use dried cranberries instead of raisins.
+    This salad can be prepared the day before and stored in the refrigerator.
+
+
+
+
+=====================================
+c (Salad)
+
+Mediterranean Tuna Salad
+
+Ingredients
+3 cans (5 ounces each) tuna in water, drained
+1 cup carrot, peeled and coarsely grated (about 2 medium carrots)
+2 cups diced cucumber
+1 1⁄2 cups peas, canned and drained or thawed from frozen
+3⁄4 cup low-fat Italian salad dressing
+
+Directions
+
+    Place drained tuna in a medium bowl. Use a fork to break apart chunks of tuna.
+    Add carrot, cucumber, peas and salad dressing. Mix well.
+    Serve immediately or make ahead, cover and refrigerate until ready to serve.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Serve on lettuce leaves or make sandwiches with whole wheat or pocket (pita) bread.
+
+
+
+    =============================================
+d (Salad)
+Cowboy Salad
+
+Ingredients
+2 cans (15 ounces) black-eyed peas or black beans (try a mix, or other types)
+1 1⁄2 cups corn (canned and drained, frozen, or fresh cooked)
+1 bunch cilantro
+1 bunch green onions (5 green onions)
+3 medium tomatoes
+1 avocado (optional)
+1 Tablespoon canola or vegetable oil
+2 Tablespoons vinegar or lime juice
+1⁄2 teaspoon each salt and pepper
+Directions
+
+    Drain and rinse the black-eyed peas (or black beans) and corn.
+    Finely chop the cilantro and green onions.
+    Dice the tomatoes and avocado.
+    Combine all veggies in a large bowl.
+    Mix oil, vinegar or lime juice, salt and pepper together in a small bowl.
+    Pour oil mixture over salad ingredients and toss lightly.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Use as a filling for tacos, burritos or wraps, on a burger, over a baked potato, or as a snack with tortilla chips.
+    Try adding other vegetables such as sweet or hot peppers, cucumber or zucchini.
+    Freeze extra lime juice to use later.
+    Cook your own dry beans. One can (15 ounces) is about 1 1/2 to 1 3/4 cups drained beans.
+
+
+
+
+===============================
+e (Desserts)
+Apple Spice Baked Oatmeal
+
+Ingredients
+1 egg, beaten
+1⁄2 cup applesauce
+1 1⁄2 cups nonfat or 1% milk
+1 teaspoon vanilla
+2 Tablespoons oil
+1 apple, chopped (about 1 ½ cups)
+2 cups old fashioned rolled oats
+1 teaspoon baking powder
+1⁄4 teaspoon salt
+1 teaspoon cinnamon
+
+TOPPING
+2 Tablespoons brown sugar
+2 Tablespoons chopped nuts (optional)
+
+Directions
+
+    Preheat oven to 375 degrees. Lightly oil or spray an 8" x 8" baking dish.
+    Combine the egg, applesauce, milk, vanilla and oil in a bowl. Mix in the apple.
+    In a separate bowl, mix the rolled oats, baking powder, salt and cinnamon. Add to the liquid ingredients and mix well.
+    Pour mixture into baking dish, and bake for 25 minutes.
+    Remove from oven and sprinkle with brown sugar and (optional) nuts.
+    Return to oven and broil for 3 to 4 minutes until top is browned and the sugar bubbles.
+    Serve warm. Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Substitute other fruit for the apple. Try bananas, pears, blueberries or a mixture.
+    Serve warm topped with vanilla yogurt.
+
+
+
+
+======================================
+f (Desserts)
+
+Banana Boats
+
+
+Ingredients
+1 banana with peel
+1 Tablespoon crushed pineapple
+1 Tablespoon coconut flakes
+
+Directions
+
+    Leave the peel on the banana and make a deep cut down the long side through the peel and into the banana. Do not cut all the way through.
+    Slightly pull the cut apart to make a pocket in the banana.
+    Fill the pocket with crushed pineapple and top with coconut flakes.
+    Wrap the banana in foil. Place on a grill or near the coals of a campfire
+    Heat until warm, about 5 minutes at medium high heat.
+    Carefully remove the foil packet from the heat. Let cool slightly and remove foil. The peel may be black but the inside will be warm and delicious.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Not grilling?  Bake the foil packets in the oven at 350 degrees for about 15 minutes.
+    Try other fillings – peanut butter, chopped nuts, other fruit, a drizzle of honey or a sprinkle of cinnamon.
+    Honey is not recommended for children under 1 year old.
+
+
+
+
+=====================
+g (Desserts)
+
+Banana Bobs
+
+
+Ingredients
+1 large banana cut into ½ inch slices
+1⁄4 cup low-fat vanilla yogurt
+2 Tablespoons oat and honey granola cereal
+
+Directions
+
+    Divide the sliced banana pieces between two plates.
+    Place 2 tablespoons of yogurt onto each plate.
+    Place 1 tablespoon of granola cereal onto each plate.
+    Use fork to pick up a slice of banana and dip into the yogurt, then into the cereal.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Try different flavors of yogurt.
+
+
+===============================================
+
+h (Soup)
+
+Creamy Potato Leek Soup
+
+Ingredients
+3 leeks (about 3 cups diced)
+3 potatoes (about 3 cups diced)
+2 Tablespoons butter or margarine
+4 1⁄2 cups chicken broth
+1⁄4 cup 1% milk
+2 garlic cloves, minced or 1/2 teaspoon garlic powder
+1⁄2 teaspoon black pepper
+
+
+Directions
+
+    Remove root and green tops from leeks.  Slice in half lengthwise and rinse well under running water.  Slice crosswise into ¼ inch slices.
+    Scrub potatoes well; cut into small cubes.
+    Melt butter or margarine in a 2-quart saucepan over medium heat.
+    Add garlic and chopped leeks. Cook until softened.
+    Add potatoes and enough broth to cover.  Cover pan and simmer until potatoes are soft.  Mash with a potato masher or fork until potatoes are fairly smooth.
+    Add remaining broth, milk and pepper.  Simmer for about 5 minutes.
+    Refrigerate leftovers within 2 hours.
+
+
+=================================
+
+i (Soup)
+
+Curried Pumpkin Soup
+
+Ingredients
+1⁄2 pound fresh mushrooms, sliced
+1⁄2 cup chopped onion
+2 Tablespoons margarine
+2 Tablespoons all-purpose flour
+1 teaspoon curry powder
+3 cups vegetable broth (see notes)
+1 can (15 ounces) solid-pack pumpkin
+1 can (12 ounces) evaporated milk
+1 Tablespoon honey
+1⁄2 teaspoon salt
+1⁄4 teaspoon pepper
+1⁄4 teaspoon ground nutmeg fresh or frozen chives (optional)
+Directions
+
+    In 4 quart (or larger) saucepan, sauté the mushrooms and onion in margarine until tender. Stir in the flour and curry powder until blended. Gradually add the broth.
+    Bring to a boil; cook and stir for 2 minutes or until thickened.
+    Add the pumpkin, milk, honey, salt, pepper, and nutmeg; heat through.
+    Garnish with chives if desired.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    Broth can be canned or made using bouillon. For each cup of broth use 1 cup very hot water and 1 teaspoon or 1 cube bouillon.
+    Try substituting cooked winter squash or cooked pumpkin for canned pumpkin. Mash and measure out 2 cups for soup.
+    Honey is not recommended for children under 1 year old.
+
+
+
+==============================
+j (PanCakes)
+
+Carrot Pancakes
+
+Ingredients
+1⁄2 cup oats (quick or old-fashioned)
+3⁄4 cup buttermilk
+1⁄2 cup carrots, finely grated
+1 egg
+1 Tablespoon oil
+1⁄4 cup nonfat or 1% milk
+1⁄2 teaspoon vanilla extract (optional)
+1⁄2 cup all purpose flour
+1 Tablespoon sugar
+1 teaspoon baking powder
+1⁄2 teaspoon baking soda
+1⁄2 teaspoon salt
+1⁄2 teaspoon cinnamon (optional)
+Directions
+
+    Mix oatmeal and buttermilk and set aside to soak.
+    Peel and grate the carrot with a fine grater.
+    Add egg, oil, milk and vanilla extract, if desired, to the oatmeal mixture; beat well. Stir in the grated carrot.
+    Measure dry ingredients and stir into the wet ingredients until batter is fairly smooth. If it seems too thick add a small amount of milk.
+    Lightly spray a large skillet or griddle with non-stick cooking spray or lightly wipe with oil. Heat skillet or griddle over medium-high heat (350 degrees in an electric skillet). For each pancake, pour about 1/4 cup of batter onto the hot griddle.
+    Cook until pancakes are puffed and dry around edges. Turn and cook other side until golden brown.
+    Refrigerate leftovers within 2 hours.
+
+Notes
+
+    To see if skillet is hot enough, sprinkle with a few drops of water. If drops skitter around, heat is just right.
+    Top with applesauce, fresh fruit or yogurt.
+
+=================================
+k (pancakes)
+
+Favorite Pancakes (with Eggs)
+
+
+Ingredients
+1 1⁄4 cups all-purpose flour
+1 Tablespoon baking powder
+1 Tablespoon sugar
+1⁄4 teaspoon salt
+1 egg
+1 cup non-fat or 1% milk (add 2 Tablespoons for thinner pancakes)
+2 Tablespoons vegetable oil
+1 teaspoon vanilla (optional)
+
+
+Directions
+
+    Mix together flour, baking powder, sugar and salt in a medium bowl.
+    In a separate bowl, beat egg until well blended. Add milk and oil.
+    Add liquids to dry ingredients and stir just until lumps disappear.
+    Lightly spray a large skillet or griddle with non-stick cooking spray or lightly wipe with oil. Heat skillet or griddle over medium-high heat (350 degrees in an electric skillet). Pour about ¼ cup of batter per pancake onto the hot skillet or griddle. Cook until bubbles come to the surface of the pancake and the edges start to look dry. Turn once. Bake until bottom is golden brown.
+
+Notes
+
+Variations:
+
+Whole wheat – use whole wheat pastry flour or replace about half the all-purpose flour with whole wheat flour. Add 1-2 Tablespoons of water or milk if batter is too thick.
+
+Oatmeal – replace about half the flour with rolled oats.  Soak the rolled oats in the milk for 5 minutes before mixing the batter.
+
+Buttermilk – replace the milk with buttermilk; reduce the baking powder to 2 teaspoons and add ½ teaspoon baking soda.
+
+Apple – Add ½ cup apple shredded or cut into small pieces to the liquid ingredients; add up to ½ teaspoon cinnamon if desired
+
+Berry  – Try blueberries, raspberries, blackberries or a mix.  After batter is poured on the skillet or griddle, sprinkle the tops with berries, before turning to cook the other side.  No need to thaw frozen berries.
